@@ -1,0 +1,44 @@
+draw_visuals:
+  name: Draw Visuals
+  description: Advanced drawing (text, pixels).
+  target:
+    entity:
+      integration: idm_display
+  fields:
+    background:
+      name: Background RGB
+      description: Background color [r,g,b].
+      example: [10, 10, 10]
+      selector:
+        color_rgb:
+    elements:
+      name: Visual Elements
+      description: >-
+        List of elements. 
+        Supported types:
+        - text: content, x, y, color, font ("3x5" or "5x7"), spacing
+        - pixels: pixels=[[x, y, r, g, b], ...]
+      required: true
+      example: |
+        - type: text
+          content: "12:00"
+          x: 1
+          y: 1
+          color: [255, 255, 255]
+          font: "3x5"
+      selector:
+        object:
+
+clear_display:
+  name: Clear Display
+  description: Clears the screen.
+  target:
+    entity:
+      integration: idm_display
+
+sync_time:
+  name: Sync Time
+  description: Synchronize display clock with HA time.
+  target:
+    entity:
+      integration: idm_display
